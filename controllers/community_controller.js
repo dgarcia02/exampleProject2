@@ -5,7 +5,7 @@ const community = express.Router()
 
 // =========== NEW ROUTE ===========//
 community.get('/new', (req, res) => {
-    res.render('../views/community/new.ejs')
+    res.render('community/new.ejs')
     // res.send('test')
 })
 
@@ -13,17 +13,17 @@ community.get('/new', (req, res) => {
 
 
 // =========== DELETE ROUTE ===========//
-community.delete('/:id', (req, res) => {
-    Community.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/community')
-    })
-})
+// community.delete('/:id', (req, res) => {
+//     Community.findByIdAndRemove(req.params.id, (err, data) => {
+//         res.redirect('/community')
+//     })
+// })
 
 // =========== SHOW ROUTE ===========//
 community.get('/:id', (req, res) => {
     Community.findById(req.params.id, (error, foundMember) => {
         res.render(
-            '../views/community/show.ejs',
+            'community/show.ejs',
             {
                 member: foundMember
             }
@@ -35,13 +35,17 @@ community.get('/:id', (req, res) => {
 
 
 // =========== CREATE ROUTE ===========//
-
+community.post('/', (req, res) => {
+    Community.create(req.body, (error, createdMember) => {
+        res.redirect('/community')
+    })
+})
 
 // =========== INDEX ROUTE ===========//
 community.get('/', (req, res) => {
     Community.find({}, (error, allMembers) => {
         res.render(
-            '../views/community/index.ejs',
+            'community/index.ejs',
             {
                 members: allMembers
             }
@@ -77,9 +81,9 @@ community.get('/setup/seed', (req, res) => {
                         img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
                     },
                     {
-                        date: 'May 16, 2021',
-                        entry: 'Best part of my day! Keep it up guys!',
-                        feeling: 'Good',
+                        date: 'May 18, 2021',
+                        entry: 'Keep up the great work everyone!',
+                        feeling: 'Great',
                         img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
                     }
                 ]
@@ -104,13 +108,13 @@ community.get('/setup/seed', (req, res) => {
                         date: 'March 23, 2021',
                         entry: 'Just went out for a well needed run with amazing weather! Keep up the great work everyone!',
                         feeling: 'Great',
-                        img: url("../public/imgs/running_m2.jpg")
+                        img: "../public/imgs/running_m2.jpg"
                     },
                     {
                         date: 'March 24, 2021',
                         entry: 'Hiking is great for the calves! What a beautiful morning! Good morining everyone!',
                         feeling: 'Great',
-                        img: url("../public/imgs/running_m2.jpg")
+                        img: "../public/imgs/running_m2.jpg"
                     },
                 ]
             }

@@ -1,7 +1,8 @@
 // =============== DEPENDENCIES ===============//
 const express = require('express');
-const methodOverride  = require('method-override');
-const mongoose = require ('mongoose');
+const methodOverride = require('method-override');
+const mongoose = require('mongoose');
+
 
 // =============== CONTROLLERS ===============//
 const communityController = require('./controllers/community_controller.js')
@@ -9,7 +10,7 @@ const communityController = require('./controllers/community_controller.js')
 
 
 // =============== CONFIGURATION ===============//
-const app = express ();
+const app = express();
 const db = mongoose.connection;
 require('dotenv').config()
 
@@ -17,9 +18,9 @@ require('dotenv').config()
 // =============== PORT ===============//
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3003;
-//___________________
-//Database
-//___________________
+
+
+// =============== DATEBASE ===============//
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
@@ -45,6 +46,7 @@ app.use('/community', communityController);
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');
+  // res.redirect('/community')
 });
 
 

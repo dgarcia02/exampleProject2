@@ -4,33 +4,28 @@ const Schema = mongoose.Schema
 const communitySchema = new Schema({
     name: { type: String, required: true },
     dateOfBirth: {
-        type: Object,
-        required: true,
         month: String,
         day: Number,
-        year: Number
+        year: Number,
     },
     gender: String,
     pronouns: String,
     location: {
-        type: Object,
-        required: true,
         state: String,
         zip: Number,
     },
     points: Number,
     img: String,
-    posts: {
-        type: "array",
-        items: {
-            type: String,
-            date: String,
+    posts: [
+        {
+            date: Date,
             entry: String,
             // great, good, tired, exhausted, can barely walk
             feeling: String,
-            img: String
+            img: String,
+            points: Number
         }
-    }
+    ]
 })
 
 // this sets up the collection in the database
