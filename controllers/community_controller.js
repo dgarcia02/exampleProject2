@@ -13,7 +13,16 @@ const community = express.Router()
 
 
 // =========== SHOW ROUTE ===========//
-
+community.get('/:id', (req, res) => {
+    Community.findById(req.params.id, (error, foundMember) => {
+        res.render(
+            '../views/community/show.ejs',
+            {
+                member: foundMember
+            }
+        )
+    })
+})
 
 // =========== UPDATE ROUTE ===========//
 
@@ -27,7 +36,7 @@ community.get('/', (req, res) => {
         res.render(
             '../views/community/index.ejs',
             {
-                community: allMembers
+                members: allMembers
             }
         )
     })
@@ -45,20 +54,28 @@ community.get('/setup/seed', (req, res) => {
                     day: 12,
                     year: 2002,
                     },
-                gender: 'female',
-                pronouns: 'she/her',
+                gender: 'Female',
+                pronouns: 'She/Her',
                 location: {
                     state: 'Ohio',
                     zip: 45768
                     },
                 points: 0,
                 img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
-                posts: {
-                    date: 'May 16, 2021',
-                    entry: "Best part of my day! #BikeAdventures",
-                    feeling: 'Good',
-                    img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
-                }
+                posts: [
+                    {
+                        date: 'May 16, 2021',
+                        entry: "Best part of my day! #BikeAdventures",
+                        feeling: 'Good',
+                        img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+                    },
+                    {
+                        date: 'May 16, 2021',
+                        entry: 'Best part of my day! Keep it up guys!',
+                        feeling: 'Good',
+                        img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+                    }
+                ]
             },
             {
                 name: 'Josh Lawrence',
@@ -75,12 +92,20 @@ community.get('/setup/seed', (req, res) => {
                     },
                 points: 0,
                 img: "../public/imgs/profile_m2.jpg",
-                posts: {
-                    date: 'March 23, 2021',
-                    entry: 'Just went out for a well needed run with amazing weather! Keep up the great work everyone!',
-                    feeling: 'Great',
-                    img: "../public/imgs/running_m2.jpg"
-                }
+                posts: [
+                    {
+                        date: 'March 23, 2021',
+                        entry: 'Just went out for a well needed run with amazing weather! Keep up the great work everyone!',
+                        feeling: 'Great',
+                        img: url("../public/imgs/running_m2.jpg")
+                    },
+                    {
+                        date: 'March 24, 2021',
+                        entry: 'Hiking is great for the calves! What a beautiful morning! Good morining everyone!',
+                        feeling: 'Great',
+                        img: url("../public/imgs/running_m2.jpg")
+                    },
+                ]
             }
         ],
         (error, data) => {

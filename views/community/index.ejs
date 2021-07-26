@@ -8,12 +8,13 @@
         <div class="container">
             <h1>Feed</h1>
 
-            <% for (let i = 0; i < community.length; i++) { %>
+            <% for (let i = 0; i < members.length; i++) { %>
                 <div class="entry">
-                    <img src="<%=community[i].posts.img%>" alt="">
-                    <p><%=community[i].posts.date%></p>
-                    <p><%=community[i].posts.entry%></p>
-                    <p><%=community[i].posts.feeling%></p>
+                    <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
+                    <img src="<%=members[i].posts.img%>" alt="">
+                    <p><%=members[i].posts.date%></p>
+                    <p><%=members[i].posts.entry%></p>
+                    <p><%=members[i].posts.feeling%></p>
                 </div>
             <% } %>
 

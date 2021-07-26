@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>showing <%= member.name %> profile page</h1>
+            <img src="<%= member.img %>" alt="">
+            <h3><%= member.name %></h3>
+            <h4><%= member.pronouns %></h4>
+            <h4>Points: <%= member.points %></h4>
+
+            <a href="#"><button type="button" name="button">Edit Profile</button></a>
+
+            <div class="posts">
+                <ul>
+                    <% for (let i = 0; i < member.posts.length; i++) { %>
+                        <li>
+                            <img src="<%= member.posts[i].img %>" alt="">
+                            <p><%= member.posts[i].date %></p>
+                            <p><%= member.posts[i].entry %></p>
+                            <p><%= member.posts[i].feeling %></p>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <nav>
+                <a href="/community">Back to Feed</a>
+            </nav>
+        </div>
+    </body>
+</html>

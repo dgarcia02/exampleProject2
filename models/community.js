@@ -21,12 +21,15 @@ const communitySchema = new Schema({
     points: Number,
     img: String,
     posts: {
-        type: Object,
-        date: String,
-        entry: String,
-        // great, good, tired, exhausted, can barely walk
-        feeling: String,
-        img: String
+        type: "array",
+        items: {
+            // type: String,
+            date: String,
+            entry: String,
+            // great, good, tired, exhausted, can barely walk
+            feeling: String,
+            img: String
+        }
     }
 })
 
