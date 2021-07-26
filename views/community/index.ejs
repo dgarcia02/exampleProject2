@@ -5,7 +5,18 @@
         <title></title>
     </head>
     <body>
-        <h1>works</h1>
-        
+        <div class="container">
+            <h1>Feed</h1>
+
+            <% for (let i = 0; i < community.length; i++) { %>
+                <div class="entry">
+                    <img src="<%=community[i].posts.img%>" alt="">
+                    <p><%=community[i].posts.date%></p>
+                    <p><%=community[i].posts.entry%></p>
+                    <p><%=community[i].posts.feeling%></p>
+                </div>
+            <% } %>
+
+        </div>
     </body>
 </html>

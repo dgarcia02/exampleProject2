@@ -23,7 +23,14 @@ const community = express.Router()
 
 // =========== INDEX ROUTE ===========//
 community.get('/', (req, res) => {
-    res.render('../views/community/index.ejs')
+    Community.find({}, (error, allMembers) => {
+        res.render(
+            '../views/community/index.ejs',
+            {
+                community: allMembers
+            }
+        )
+    })
 })
 
 // =========== SEED ROUTE ===========//
@@ -48,9 +55,9 @@ community.get('/setup/seed', (req, res) => {
                 img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
                 posts: {
                     date: 'May 16, 2021',
-                    entry:'',
+                    entry: "Best part of my day! #BikeAdventures",
                     feeling: 'Good',
-                    img: "../public/imgs/biking.jpg"
+                    img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
                 }
             },
             {
