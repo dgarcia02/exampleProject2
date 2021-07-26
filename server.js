@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 // =============== CONTROLLERS ===============//
 const communityController = require('./controllers/community_controller.js')
+const postsController = require('./controllers/posts_controller.js')
 
 
 
@@ -39,7 +40,7 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use('/community', communityController);
-
+app.use('/posts', postsController);
 
 
 // =============== ROUTES ===============//

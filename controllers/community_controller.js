@@ -5,7 +5,8 @@ const community = express.Router()
 
 // =========== NEW ROUTE ===========//
 community.get('/new', (req, res) => {
-    res.render('community/new.ejs')
+    res.render('community/new.ejs');
+    res.redirect('/community/:id')
     // res.send('test')
 })
 

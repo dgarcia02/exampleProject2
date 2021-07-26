@@ -14,19 +14,11 @@ const communitySchema = new Schema({
         state: String,
         zip: Number,
     },
-    points: Number,
+    points: { default: 0 },
     img: String,
-    posts: [
-        {
-            date: Date,
-            entry: String,
-            // great, good, tired, exhausted, can barely walk
-            feeling: String,
-            img: String,
-            points: Number
-        }
-    ]
+    // posts: [postSchema]
 })
+
 
 // this sets up the collection in the database
 const Community = mongoose.model('Community', communitySchema);

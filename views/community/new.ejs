@@ -12,7 +12,8 @@
             <h1>new profile page</h1>
             <form class="" action="/community" method="POST">
                 <!-- ============== PROFILE PIC ============== -->
-                <img src="" alt="">
+                <label for="img">Profile Picture:</label>
+                <input type="url" name="img" id="img"/><br>
 
                 <!-- ============== NAME ============== -->
                 <label for="name">Name:</label>
@@ -20,9 +21,9 @@
 
                 <!-- ========= DATE OF BIRTH ========= -->
                 <label for="dateOfBirth">Date of Birth:</label>
-                <input type="text" name="month" placeholder="MM" id="month"/>
-                <input type="text" name="day" placeholder="DD" id="day" />
-                <input type="text" name="year" placeholder="YYYY" id="year" />
+                <input type="text" name="dateOfBirth.month" placeholder="MM" id="month"/>
+                <input type="text" name="dateOfBirth.day" placeholder="DD" id="day" />
+                <input type="text" name="dateOfBirth.year" placeholder="YYYY" id="year" />
 
                 <!-- ============= GENDER ============= -->
                 <label for="gender">Gender:</label>
@@ -59,8 +60,8 @@
 
                 <!-- ============== LOCATION ============== -->
                 <label for="location">Location:</label>
-                <input type="text" name="state" placeholder="State" id="state" />
-                <input type="text" name="zip" placeholder="Zip" id="zip" />
+                <input type="text" name="location.state" placeholder="State" id="state" />
+                <input type="text" name="location.zip" placeholder="Zip" id="zip" />
                 <br>
                 <input type="submit" value="Submit" />
             </form>
