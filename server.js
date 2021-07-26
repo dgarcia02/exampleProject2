@@ -45,8 +45,8 @@ app.use('/community', communityController);
 // =============== ROUTES ===============//
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
-  // res.redirect('/community')
+  // res.send('Hello World!');
+  res.redirect('/community')
 });
 
 
