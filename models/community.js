@@ -23,7 +23,7 @@ const communitySchema = new Schema({
     posts: {
         type: "array",
         items: {
-            // type: String,
+            type: String,
             date: String,
             entry: String,
             // great, good, tired, exhausted, can barely walk

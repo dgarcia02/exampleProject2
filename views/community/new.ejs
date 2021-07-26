@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h1>new profile page</h1>
+            <form class="" action="/community" method="POST">
+                <!-- ============== PROFILE PIC ============== -->
+                <img src="" alt="">
+
+                <!-- ============== NAME ============== -->
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name"/><br>
+
+                <!-- ========= DATE OF BIRTH ========= -->
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="text" name="month" placeholder="MM" id="month"/>
+                <input type="text" name="day" placeholder="DD" id="day" />
+                <input type="text" name="year" placeholder="YYYY" id="year" />
+
+                <!-- ============= GENDER ============= -->
+                <label for="gender">Gender:</label>
+                <!-- female -->
+                <input type="radio" name="gender" value="female">
+                <label for="gender">Female</label>
+                <!-- male -->
+                <input type="radio" name="gender" value="male">
+                <label for="gender">Male</label>
+                <!-- gender neutral -->
+                <input type="radio" name="gender" value="genderNeutral">
+                <label for="gender">Gender Neutral</label>
+                <!-- non-binary -->
+                <input type="radio" name="gender" value="nonBinary">
+                <label for="gender">Non-Binary</label>
+                <!-- other -->
+                <input type="radio" name="gender" value="other">
+                <label for="gender">Other</label>
+
+                <!-- ============= PRONOUNS ============= -->
+                <label for="pronouns">Pronouns:</label>
+                <!-- she/her -->
+                <input type="radio" name="pronouns" value="she/her">
+                <label for="pronouns">She/Her</label>
+                <!-- he/him -->
+                <input type="radio" name="pronouns" value="he/him">
+                <label for="pronouns">He/Him</label>
+                <!-- they/them -->
+                <input type="radio" name="pronouns" value="they/them">
+                <label for="pronouns">They/Them</label>
+                <!-- other -->
+                <input type="radio" name="pronouns" value="other">
+                <label for="pronouns">Other</label>
+
+                <!-- ============== LOCATION ============== -->
+                <label for="location">Location:</label>
+                <input type="text" name="state" placeholder="State" id="state" />
+                <input type="text" name="zip" placeholder="Zip" id="zip" />
+                <br>
+                <input type="submit" value="Submit" />
+            </form>
+
+        </div>
+    </body>
+</html>

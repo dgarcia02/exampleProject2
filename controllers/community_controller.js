@@ -4,13 +4,20 @@ const community = express.Router()
 
 
 // =========== NEW ROUTE ===========//
-
+community.get('/new', (req, res) => {
+    res.render('../views/community/new.ejs')
+    // res.send('test')
+})
 
 // =========== EDIT ROUTE ===========//
 
 
 // =========== DELETE ROUTE ===========//
-
+community.delete('/:id', (req, res) => {
+    Community.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/community')
+    })
+})
 
 // =========== SHOW ROUTE ===========//
 community.get('/:id', (req, res) => {
