@@ -13,11 +13,11 @@ community.get('/new', (req, res) => {
 
 
 // =========== DELETE ROUTE ===========//
-// community.delete('/:id', (req, res) => {
-//     Community.findByIdAndRemove(req.params.id, (err, data) => {
-//         res.redirect('/community')
-//     })
-// })
+community.delete('/:id', (req, res) => {
+    Community.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/community')
+    })
+})
 
 // =========== SHOW ROUTE ===========//
 community.get('/:id', (req, res) => {

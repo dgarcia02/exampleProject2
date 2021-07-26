@@ -11,11 +11,13 @@
 
             <% for (let i = 0; i < members.length; i++) { %>
                 <div class="entry">
-                    <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
-                    <img src="<%=members[i].posts.img%>" alt="">
-                    <p><%=members[i].posts.date%></p>
-                    <p><%=members[i].posts.entry%></p>
-                    <p><%=members[i].posts.feeling%></p>
+                    <% for (let member of members) { %>
+                        <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
+                        <img src="<%=member.posts[i].img%>" alt="">
+                        <p><%=member.posts[i].date%></p>
+                        <p><%=member.posts[i].entry%></p>
+                        <p><%=member.posts[i].feeling%></p>
+                    <% } %>
                 </div>
             <% } %>
 
