@@ -80,6 +80,9 @@ post.post('/', (req, res) => {
     })
 })
 
+// post.post('/', (req, res) => {
+//     const
+// })
 
 // =========== INDEX ROUTE ===========//
 post.get('/', (req, res) => {

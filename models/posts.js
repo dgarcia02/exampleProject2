@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Community = require('./community.js')
 const Schema = mongoose.Schema
 
 const postSchema = new Schema({
@@ -9,7 +10,7 @@ const postSchema = new Schema({
     points: { default: 0 },
     postedBy:
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId.name,
             ref: 'Community'
         },
         // { timestamps: true }
