@@ -1,0 +1,76 @@
+/* ========== General ========== */
+body {
+    background-color: #F5F5F5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+}
+
+footer {
+    margin: auto;
+    text-align: center;
+    font-size: 10px;
+    border-top: 1px solid rgba(219,219,255,1);
+    height: 30px;
+}
+
+/* navigation */
+nav {
+    align-items: center;
+    border-bottom: 1px solid rgba(219,219,255,1);
+    /* box-shadow: 0px 1px 5px gray; */
+    height: 50px;
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ion-icon {
+    color: #2D3142;
+    font-size: 25px;
+    padding: 0.3em;
+}
+
+
+/* ========== Community ========== */
+.profilesList {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
+.profileItems {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profilePic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+h3 {
+    font-weight: bold;
+    color: #EC6A32;
+}
+
+li {
+    text-decoration: none;
+}
+
+/* ========== New Member ========== */
+
+
+
+
+/*  */

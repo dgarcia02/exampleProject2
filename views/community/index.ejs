@@ -4,21 +4,30 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
+        <!-- header and nav partial -->
         <%- include ('../partials/header.ejs') %>
-        <div class="container">
-            <h1>Community</h1>
 
-            <ul>
-                <% for (let i = 0; i < members.length; i++) { %>
-                    <img src="<%=members[i].img%>" alt="profilePic">
-                    <br>
-                    <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
-                    <br>
-                    <h5><%=members[i].pronouns%></h5>
-                <% } %>
-            </ul>
+        <div class="container">
+
+            <main>
+                <h3>Community</h3>
+                <div class="profilesList">
+                    <ul class="profileItems">
+                        <% for (let i = 0; i < members.length; i++) { %>
+                            <li>
+                                <a href="/community/<%=members[i]._id%>"><img src="<%=members[i].img%>" alt="profilePic" class="profilePic"></a>
+                                <br>
+                                <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
+                                <br>
+                                <h5><%=members[i].pronouns%></h5>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </main>
 
         </div>
+
         <footer>
             <%- include ('../partials/footer.ejs') %>
         </footer>

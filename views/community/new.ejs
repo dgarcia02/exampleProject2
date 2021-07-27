@@ -4,10 +4,12 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
+        <!-- header and nav partial -->
         <%- include ('../partials/header.ejs') %>
+
         <div class="container">
 
-            <h1>new profile page</h1>
+            <h2>New Profile</h2>
             <form class="" action="/community" method="POST">
                 <!-- ============== PROFILE PIC ============== -->
                 <label for="img">Profile Picture:</label>
@@ -26,39 +28,24 @@
                 <input type="text" name="dateOfBirth.year" placeholder="YYYY" id="year" />
                 <br>
 
-                <!-- ============= GENDER ============= -->
+                <!-- ========= Gender ========= -->
                 <label for="gender">Gender:</label>
-                <!-- female -->
-                <input type="radio" name="gender" value="female">
-                <label for="gender">Female</label>
-                <!-- male -->
-                <input type="radio" name="gender" value="male">
-                <label for="gender">Male</label>
-                <!-- gender neutral -->
-                <input type="radio" name="gender" value="genderNeutral">
-                <label for="gender">Gender Neutral</label>
-                <!-- non-binary -->
-                <input type="radio" name="gender" value="nonBinary">
-                <label for="gender">Non-Binary</label>
-                <!-- other -->
-                <input type="radio" name="gender" value="other">
-                <label for="gender">Other</label>
+                    <select class="" name="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="genderNeutral">Gender Neutral</option>
+                        <option value="nonBinary">Non Binary</option>
+                        <option value="other">Other</option>
+                    </select>
                 <br>
 
                 <!-- ============= PRONOUNS ============= -->
                 <label for="pronouns">Pronouns:</label>
-                <!-- she/her -->
-                <input type="radio" name="pronouns" value="she/her">
-                <label for="pronouns">She/Her</label>
-                <!-- he/him -->
-                <input type="radio" name="pronouns" value="he/him">
-                <label for="pronouns">He/Him</label>
-                <!-- they/them -->
-                <input type="radio" name="pronouns" value="they/them">
-                <label for="pronouns">They/Them</label>
-                <!-- other -->
-                <input type="radio" name="pronouns" value="other">
-                <label for="pronouns">Other</label>
+                    <select class="" name="pronouns">
+                        <option value="She/Her">She/Her</option>
+                        <option value="He/Him">He/Him</option>
+                        <option value="They/Them">They/Them</option>
+                    </select>
                 <br>
 
                 <!-- ============== LOCATION ============== -->
@@ -66,7 +53,7 @@
                 <input type="text" name="location.state" placeholder="State" id="state" />
                 <input type="text" name="location.zip" placeholder="Zip" id="zip" />
                 <br>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" class="submit-btn"/>
             </form>
 
         </div>
