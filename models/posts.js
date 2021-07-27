@@ -7,7 +7,12 @@ const postSchema = new Schema({
     feeling: String,
     img: String,
     points: { default: 0 },
-    postedBy: { type: mongoose.Schema.Types.ObjectId }
+    postedBy:
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Community'
+        },
+        // { timestamps: true }
 })
 
 const Post = mongoose.model('Post', postSchema);

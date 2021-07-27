@@ -19,11 +19,19 @@
                 <input type="submit" value="Delete Profile">
             </form>
 
+            <section>
+                <h2>Posts:</h2>
+                <ul>
+                    <% for (let i = 0; i < member.articles.length; i++) { %>
+                        <li><a href="/posts"><%=member.posts[i].postText%></a></li>
+                    <% } %>
+                </ul>
+            </section>
 
             <nav>
                 <a href="/community">Back to Feed</a>
             </nav>
-            
+
         </div>
     </body>
 </html>

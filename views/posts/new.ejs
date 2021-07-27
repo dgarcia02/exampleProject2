@@ -9,11 +9,20 @@
             <h1>Create New Post</h1>
 
             <form action="/posts" method="POST">
+                <select name="memberId">
+                    <% for (let i = 0; i < members.length; i++) { %>
+                        <option value="<%=members[i]._id%>"><%=members[i].name%></option>
+                    <% } %>
+                </select>
+                <br>
+
                 Photo: <input type="url" name="img" id="img" />
                 <br>
                 Caption: <textarea name="postText"></textarea>
                 <br>
                 Feeling: <input type="text" name="feeling" id="feeling" />
+                <br>
+                <input type="submit" value="Post">
             </form>
 
         </div>

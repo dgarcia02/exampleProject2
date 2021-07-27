@@ -1,12 +1,20 @@
 const express = require('express')
 const Post = require('../models/posts.js')
+const Community = require('../models/community.js')
 const post = express.Router()
 
 
 // =========== NEW ROUTE ===========//
 post.get('/new', (req, res) => {
-    res.render('posts/new.ejs');
-    res.redirect('/posts')
+    Community.find({}, (err, allMembers) => {
+        res.render(
+            'posts/new.ejs',
+            {
+                members: allMembers
+            }
+        )
+        res.redirect('/posts')
+    })
     // res.send('test')
 })
 
@@ -32,6 +40,22 @@ post.delete('/:id', (req, res) => {
 })
 
 
+// =========== SHOW ROUTE ===========//
+post.get('/:id', (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+        Community.findOne({'posts._id': req.params.id}, (err, foundMember) => {
+            res.render(
+                'community/show.ejs',
+                {
+                    member: foundMember,
+                    post: foundPost
+                }
+            )
+        })
+    })
+})
+
+
 // =========== UPDATE ROUTE ===========//
 post.put('/:id', (req, res) => {
     Post.findByIdAndUpdate(
@@ -46,8 +70,13 @@ post.put('/:id', (req, res) => {
 
 // =========== CREATE ROUTE ===========//
 post.post('/', (req, res) => {
-    Post.create(req.body, (err, createdPost) => {
-        res.redirect('/posts')
+    Community.findById(req.body.memberId, (err, foundMember) => {
+        Post.create(req.body, (err, createdPost) => {
+            foundMember.posts.push(createdPost)
+            foundMember.save((err, data) => {
+                res.redirect('/posts')
+            })
+        })
     })
 })
 

@@ -122,20 +122,7 @@ community.get('/setup/seed', (req, res) => {
                     },
                 points: 0,
                 img: "../public/imgs/profile_m2.jpg",
-                posts: [
-                    {
-                        date: 'March 23, 2021',
-                        entry: 'Just went out for a well needed run with amazing weather! Keep up the great work everyone!',
-                        feeling: 'Great',
-                        img: "../public/imgs/running_m2.jpg"
-                    },
-                    {
-                        date: 'March 24, 2021',
-                        entry: 'Hiking is great for the calves! What a beautiful morning! Good morining everyone!',
-                        feeling: 'Great',
-                        img: "../public/imgs/running_m2.jpg"
-                    },
-                ]
+                posts: []
             }
         ],
         (error, data) => {
