@@ -8,31 +8,31 @@
         <%- include ('../partials/header.ejs') %>
 
         <div class="container">
-            <h1>showing <%= member.name %> profile page</h1>
-            <img src="<%= member.img %>" alt="">
-            <h3><%= member.name %></h3>
-            <h4><%= member.pronouns %></h4>
-            <h4>Points: <%= member.points %></h4>
+            <div class="profileInfo">
+                <img src="<%= member.img %>" alt="" class="showProfilePic">
+                <section class="about">
+                    <h2><%= member.name %></h2>
+                    <h4><%= member.pronouns %></h4>
+                    <!-- <h4>Points: <%= member.points %></h4> -->
+                    <!-- Edit Button -->
+                    <button type="button" name="button" class="edit-btn"><a href="/community/<%=member._id%>/edit" class="edit-btnLetters">Edit Profile</a></button>
+                </section>
 
-            <!-- Edit Button -->
-            <button type="button" name="button"><a href="/community/<%=member._id%>/edit">Edit Profile</a></button>
+            </div>
+
             <!-- Delete Button -->
             <form class="delete" action="/community/<%=member.id%>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Profile">
+                <input type="submit" value="Delete Profile" class="delete-btn">
             </form>
 
-            <section>
+            <!-- <section>
                 <h2>Posts:</h2>
                 <ul>
-                    <% for (let i = 0; i < member.articles.length; i++) { %>
-                        <li><a href="/posts"><%=member.posts[i].postText%></a></li>
-                    <% } %>
-                </ul>
-            </section>
+                    <li>
 
-            <nav>
-                <a href="/community">Back to Feed</a>
-            </nav>
+                    </li>
+                </ul>
+            </section> -->
 
         </div>
         <footer>

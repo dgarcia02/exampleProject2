@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Post = require('./posts.js')
+// const Post = require('./posts.js')
 const Schema = mongoose.Schema
 
 
@@ -18,12 +18,15 @@ const communitySchema = new Schema({
     },
     points: { default: 0 },
     img: String,
-    posts: [Post.schema]
+    posts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Post"
+        }
+    ]
 })
 
-
 // this sets up the collection in the database
-// const Post = mongoose.model('Post', postSchema)
 const Community = mongoose.model('Community', communitySchema);
 
 module.exports = Community;

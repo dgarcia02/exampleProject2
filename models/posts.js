@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Community = require('./community.js')
+// const Community = require('./community.js')
 const Schema = mongoose.Schema
 
 const postSchema = new Schema({
@@ -8,12 +8,12 @@ const postSchema = new Schema({
     feeling: String,
     img: String,
     points: { default: 0 },
-    postedBy:
+    postedBy: [
         {
-            type: Schema.Types.ObjectId.name,
-            ref: 'Community'
-        },
-        // { timestamps: true }
+            type: Schema.Types.ObjectId,
+            ref: "Community"
+        }
+    ]
 })
 
 const Post = mongoose.model('Post', postSchema);

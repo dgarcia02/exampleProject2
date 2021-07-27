@@ -1,5 +1,6 @@
 const express = require('express')
 const Community = require('../models/community.js')
+const Post = require('../models/posts.js')
 const community = express.Router()
 
 
