@@ -6,20 +6,18 @@
     </head>
     <body>
         <div class="container">
-            <h1>Feed</h1>
+            <h1>Community</h1>
             <a href="/community/new">Create new profile</a>
 
-            <% for (let i = 0; i < members.length; i++) { %>
-                <div class="entry">
-                    <% for (let member of members) { %>
-                        <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
-                        <img src="<%=member.posts[i].img%>" alt="">
-                        <p><%=member.posts[i].date%></p>
-                        <p><%=member.posts[i].entry%></p>
-                        <p><%=member.posts[i].feeling%></p>
-                    <% } %>
-                </div>
-            <% } %>
+            <ul>
+                <% for (let i = 0; i < members.length; i++) { %>
+                    <img src="<%=members[i].img%>" alt="profilePic">
+                    <br>
+                    <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
+                    <br>
+                    <h5><%=members[i].pronouns%></h5>
+                <% } %>
+            </ul>
 
         </div>
     </body>

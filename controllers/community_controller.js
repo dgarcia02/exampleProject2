@@ -11,7 +11,16 @@ community.get('/new', (req, res) => {
 })
 
 // =========== EDIT ROUTE ===========//
-
+community.get('/:id/edit', (req, res) => {
+    Community.findById(req.params.id, (error, foundMember) => {
+        res.render(
+            'community/edit.ejs',
+            {
+                member: foundMember
+            }
+        )
+    })
+})
 
 // =========== DELETE ROUTE ===========//
 community.delete('/:id', (req, res) => {
@@ -33,7 +42,16 @@ community.get('/:id', (req, res) => {
 })
 
 // =========== UPDATE ROUTE ===========//
-
+community.put('/:id', (req, res) => {
+    Community.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true },
+        (error, updatedProfile) => {
+            res.redirect('/community')
+        }
+    )
+})
 
 // =========== CREATE ROUTE ===========//
 community.post('/', (req, res) => {

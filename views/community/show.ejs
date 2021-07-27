@@ -12,28 +12,18 @@
             <h4><%= member.pronouns %></h4>
             <h4>Points: <%= member.points %></h4>
 
-            <!-- edit and delete profile buttons -->
-            <a href="#"><button type="button" name="button">Edit Profile</button></a>
+            <!-- Edit Button -->
+            <button type="button" name="button"><a href="/community/<%=member._id%>/edit">Edit Profile</a></button>
+            <!-- Delete Button -->
             <form class="delete" action="/community/<%=member.id%>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete Profile">
             </form>
 
-            <div class="posts">
-                <ul>
-                    <% for (let i = 0; i < member.posts.length; i++) { %>
-                        <li>
-                            <img src="<%= member.posts[i].img %>" alt="">
-                            <p><%= member.posts[i].date %></p>
-                            <p><%= member.posts[i].entry %></p>
-                            <p><%= member.posts[i].feeling %></p>
-                        </li>
-                    <% } %>
-                </ul>
-            </div>
 
             <nav>
                 <a href="/community">Back to Feed</a>
             </nav>
+            
         </div>
     </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Edit Profile</h1>
+            <main>
+                <form action="/community/<%=member.id%>?_method=PUT" method="POST">
+                    <!-- ============== PROFILE PIC ============== -->
+                    <label for="img">Photo:</label>
+                    <input type="url" name="img" value="<%=member.img%>" id="img" />
+                    <br>
+
+                    <!-- ============== NAME ============== -->
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" value="<%=member.name%>"/>
+                    <br>
+
+                    <!-- ========= DATE OF BIRTH ========= -->
+                    <input type="text" name="dateOfBirth.month" value="<%=member.dateOfBirth.month%>" id="month"/>
+                    <input type="text" name="dateOfBirth.day" value="<%=member.dateOfBirth.day%>" id="day" />
+                    <input type="text" name="dateOfBirth.year" value="<%=member.dateOfBirth.year%>" id="year" />
+                    <br>
+
+                    <!-- ============= GENDER ============= -->
+                    <label for="gender">Gender:</label>
+                    <!-- female -->
+                    <input type="radio" name="gender" value="female" value="<%member.gender%>">
+                    <label for="gender">Female</label>
+                    <!-- male -->
+                    <input type="radio" name="gender" value="male" value="<%member.gender%>">
+                    <label for="gender">Male</label>
+                    <!-- gender neutral -->
+                    <input type="radio" name="gender" value="genderNeutral" value="<%member.gender%>">
+                    <label for="gender">Gender Neutral</label>
+                    <!-- non-binary -->
+                    <input type="radio" name="gender" value="nonBinary" value="<%member.gender%>">
+                    <label for="gender">Non-Binary</label>
+                    <!-- other -->
+                    <input type="radio" name="gender" value="other" value="<%member.gender%>">
+                    <label for="gender">Other</label>
+                    <br>
+
+                    <!-- ============= PRONOUNS ============= -->
+                    <label for="pronouns">Pronouns:</label>
+                    <!-- she/her -->
+                    <input type="radio" name="pronouns" value="she/her">
+                    <label for="pronouns">She/Her</label>
+                    <!-- he/him -->
+                    <input type="radio" name="pronouns" value="he/him">
+                    <label for="pronouns">He/Him</label>
+                    <!-- they/them -->
+                    <input type="radio" name="pronouns" value="they/them">
+                    <label for="pronouns">They/Them</label>
+                    <!-- other -->
+                    <input type="radio" name="pronouns" value="other">
+                    <label for="pronouns">Other</label>
+                    <br>
+
+                    <!-- ============== LOCATION ============== -->
+                    <label for="location">Location:</label>
+                    <input type="text" name="location.state" value="<%=member.location.state%>"/>
+                    <input type="text" name="location.zip" value="<%=member.location.zip%>"/>
+                    <br>
+
+                    <input type="submit" value="Update Profile">
+                </form>
+                <a href="/community">Back to Community</a>
+            </main>
+        </div>
+    </body>
+</html>
