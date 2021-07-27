@@ -2,6 +2,7 @@ const express = require('express')
 const Post = require('../models/posts.js')
 const post = express.Router()
 
+
 // =========== NEW ROUTE ===========//
 post.get('/new', (req, res) => {
     res.render('posts/new.ejs');
@@ -9,12 +10,39 @@ post.get('/new', (req, res) => {
     // res.send('test')
 })
 
+
+// =========== EDIT ROUTE ===========//
+post.get('/:id/edit', (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+        res.render(
+            'posts/edit.ejs',
+            {
+                post: foundPost
+            }
+        )
+    })
+})
+
+
 // =========== DELETE ROUTE ===========//
 post.delete('/:id', (req, res) => {
     Post.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/posts')
     })
 })
+
+
+// =========== UPDATE ROUTE ===========//
+post.put('/:id', (req, res) => {
+    Post.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true },
+        (error, updatedPost) => {
+        res.redirect('/posts')
+    })
+})
+
 
 // =========== CREATE ROUTE ===========//
 post.post('/', (req, res) => {
@@ -35,6 +63,7 @@ post.get('/', (req, res) => {
         )
     })
 })
+
 
 // =========== SEED ROUTE ===========//
 post.get('/setup/seed', (req, res) => {

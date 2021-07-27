@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Edit Post</h1>
+            <main>
+                <form action="/posts/<%=post.id%>?_method=PUT" method="POST">
+                    <label for="img">Photo:</label>
+                    <input type="url" name="img" value="<%=post.img%>" id="img" />
+                    <br>
+                    <label for="postText">Caption:</label>
+                    <textarea name="postText"><%=post.postText%></textarea>
+                    <br>
+                    <label for="feeling">Feeling:</label>
+                    <input type="text" value="<%=post.feeling%>">
+                    <br>
+                    <input type="submit" value="Update Post">
+                </form>
+            </main>
+        </div>
+    </body>
+</html>
