@@ -6,17 +6,22 @@ const post = express.Router()
 
 // =========== NEW ROUTE ===========//
 post.get('/new', (req, res) => {
-    Community.find({}, (err, allMembers) => {
-        res.render(
-            'posts/new.ejs',
-            {
-                members: allMembers
-            }
-        )
-        res.redirect('/posts')
-    })
-    // res.send('test')
+    res.render('posts/new.ejs');
+    res.redirect('/posts/:id')
 })
+
+// post.get('/new', (req, res) => {
+//     Community.find({}, (err, allMembers) => {
+//         res.render(
+//             'posts/new.ejs',
+//             {
+//                 members: allMembers
+//             }
+//         )
+//         res.redirect('/posts')
+//     })
+//     // res.send('test')
+// })
 
 
 // =========== EDIT ROUTE ===========//

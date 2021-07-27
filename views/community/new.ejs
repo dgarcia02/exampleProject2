@@ -23,10 +23,35 @@
 
                 <!-- ========= DATE OF BIRTH ========= -->
                 <label for="dateOfBirth">Date of Birth:</label>
-                <input type="text" name="dateOfBirth.month" placeholder="MM" id="month"/>
-                <input type="text" name="dateOfBirth.day" placeholder="DD" id="day" />
-                <input type="text" name="dateOfBirth.year" placeholder="YYYY" id="year" />
-                <br>
+                    <select class="" name="dateOfBirth.month">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+
+                    <select class="" name="dateOfBirth.day">
+                        <% for (let i = 1; i <= 31; i++) { %>
+                            <option value="<%=[i]%>"><%=[i]%></option>
+                        <% } %>
+                    </select>
+
+
+                    <select class="" name="dateOfBirth.year">
+                        <% for (let i = 2021; i >= 1930; i--) { %>
+                            <option value="<%=[i]%>"><%=[i]%></option>
+                        <% } %>
+                    </select>
+                    <br>
+
 
                 <!-- ========= Gender ========= -->
                 <label for="gender">Gender:</label>
