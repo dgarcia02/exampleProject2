@@ -4,12 +4,24 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
-        <%- include ('../partials/header.ejs') %>
+        <nav>
+            <%- include ('../partials/header.ejs') %>
+        </nav>
 
         <div class="container">
-            <h1>Create New Post <i class="fa-solid fa-face-tired"></i></h1>
+            <h3>New Post</h3>
 
             <form action="/posts" method="POST">
+                <!-- name is the document property that determines the community member -->
+                    <!-- double check if communityId is right -->
+                <select class="" name="communityId">
+                    <!-- looping through all the commumnity members profiles -->
+                    <% for (let i = 0; i < members.length; i++) { %>
+                        <!-- id is members specified object id -->
+                        <option value="<%=members[i]._id%>"><%=members[i].name%></option>
+                    <% } %>
+                </select>
+                <br>
                 <!-- post photo -->
                 <label for="img">Photo:</label>
                 <input type="file" name="img" id="img" />
