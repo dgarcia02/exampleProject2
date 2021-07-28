@@ -15,6 +15,6 @@ const storeSchema = new Schema({
     img: String
 })
 
-const Store = mongoose.model('Store', postSchema);
+const Store = mongoose.model('Store', storeSchema);
 
 module.exports = Store;

@@ -25,6 +25,26 @@ store.get('/new', (req, res) => {
 
 // =========== UPDATE ROUTE ===========//
 
+// =========== CREATE ROUTE ===========//
+store.post('/', (req, res) => {
+    Store.create(req.body, (error, createdProduct) => {
+        res.redirect('/store')
+    })
+})
+
+
+// =========== INDEX ROUTE ===========//
+store.get('/', (req, res) => {
+    Store.find({}, (error, allProducts) => {
+        res.render(
+            'store/index.ejs',
+            {
+                store: allProducts,
+                currentUser: req.session.currentUser
+            }
+        )
+    })
+})
 
 // =========== SEED ROUTE ===========//
 store.get('/setup/seed', (req, res) => {
@@ -111,7 +131,7 @@ store.get('/setup/seed', (req, res) => {
             },
         ],
         (error, data) => {
-            res.redirect('/posts')
+            res.redirect('/store')
         }
     )
 })

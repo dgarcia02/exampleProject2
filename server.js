@@ -52,10 +52,9 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use('/community', communityController);
 app.use('/posts', postsController);
-app.use('/store', storeController);
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
-
+app.use('/store', storeController);
 
 
 // =============== ROUTES ===============//
