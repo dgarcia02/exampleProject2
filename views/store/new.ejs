@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+    <body>
+        <nav>
+            <%- include ('../partials/header.ejs') %>
+        </nav>
+        <h1>new store items</h1>
+        <form class="" action="/store" method="POST">
+            <!-- product -->
+            <label for="product">Product:</label>
+            <input type="text" name="product" placeholder="Shirt">
+            <br>
+            <label for="description.color">Product Image:</label>
+            <input type="text" name="description.color" placeholder=".jpg">
+            <br>
+            <!-- size -->
+            <!-- <label for="size">Size: Make a Selection</label>
+                <select class="" name="size">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
+                </select>
+            <br> -->
+            <!-- price -->
+            <label for="price">Price:</label>
+            <input type="text" name="price" placeholder="1">
+            <br>
+            <label for="points">Reward Points Amount:</label>
+            <input type="text" name="points" placeholder="100">
+            <br>
+            <label for="img">Product Image:</label>
+            <input type="text" name="img" placeholder=".jpg">
+        </form>
+    </body>
+</html>

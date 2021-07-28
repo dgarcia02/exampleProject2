@@ -10,6 +10,7 @@ const communityController = require('./controllers/community_controller.js')
 const postsController = require('./controllers/posts_controller.js')
 const userController = require('./controllers/users_controller.js')
 const sessionsController = require('./controllers/sessions_controller.js')
+const storeController = require('./controllers/store_controller.js')
 
 
 
@@ -51,6 +52,7 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.use('/community', communityController);
 app.use('/posts', postsController);
+app.use('/store', storeController);
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
 
