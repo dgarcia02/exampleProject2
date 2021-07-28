@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-// const Post = require('./posts.js')
+const Post = require('./posts.js')
 const Schema = mongoose.Schema
 
 

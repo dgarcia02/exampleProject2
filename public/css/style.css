@@ -7,7 +7,7 @@ body {
 .container {
     margin: auto;
     width: 60%;
-    height: auto;
+    height: 620px;
     text-align: center;
 }
 
@@ -16,27 +16,19 @@ footer {
     text-align: center;
     font-size: 10px;
     border-top: 1px solid rgba(219,219,255,1);
-    height: 30px;
+    height: 80px;
+    /* background-color: #323649; */
+    color: #E0E0E0;
+}
+
+#navigation {
+    background-color: #323649;
 }
 
 a {
     text-decoration: none;
     color: black;
 }
-
-/* navigation */
-/* nav {
-    align-items: center;
-    border-bottom: 1px solid rgba(219,219,255,1);
-    /* box-shadow: 0px 1px 5px gray; */
-    /* height: 50px; */
-/* } */
-
-/* .navContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
 
 ion-icon {
     color: #E0E0E0;
@@ -45,8 +37,17 @@ ion-icon {
 }
 
 ion-icon:hover {
+    color: #EF8557;
+}
+
+i, .navWords, .brand-logo {
     color: #FFFFFF;
 }
+
+.navWords:hover {
+    color: #EF8557;
+}
+
 
 /* ========== Community ========== */
 .profilesList {
@@ -68,7 +69,7 @@ ion-icon:hover {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-h3 {
+h3, h4 {
     font-weight: bold;
     color: #EC6A32;
 }

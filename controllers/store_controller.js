@@ -89,7 +89,7 @@ store.get('/setup/seed', (req, res) => {
                 price: 62,
                 points: 300,
                 img: "https://i.imgur.com/GfUuNF8.png"
-            }
+            },
             {
                 product: 'Texas A & M International University Dustdevils Youth Short Sleeve T-Shirt',
                 description: {
