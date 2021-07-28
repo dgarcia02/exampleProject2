@@ -1,33 +1,38 @@
 const express = require('express')
 const Post = require('../models/posts.js')
-// const Community = require('../models/community.js')
+const Community = require('../models/community.js')
 const post = express.Router()
 
 
 // =========== NEW ROUTE ===========//
-post.get('/new', (req, res) => {
-    res.render(
-        'posts/new.ejs',
-        {
-            currentUser: req.session.currentUser
-        }
-    );
-    // res.redirect('/posts/:id')
-})
-
-// ---- this is for the many to many relationship ---- //
+// this is for the regular schema new.ejs
 // post.get('/new', (req, res) => {
-//     Community.find({}, (err, allMembers) => {
-//         res.render(
-//             'posts/new.ejs',
-//             {
-//                 members: allMembers
-//             }
-//         )
-//         res.redirect('/posts')
-//     })
-//     // res.send('test')
+//     res.render(
+//         'posts/new.ejs',
+//         {
+//             currentUser: req.session.currentUser
+//         }
+//     );
+//     // res.redirect('/posts/:id')
 // })
+
+// ---- this is for the relational ---- //
+post.get('/new', (req, res) => {
+    // try to find only member ObjectId
+    Community.find({}, (err, allMembers) => {
+        res.render(
+            'posts/new.ejs',
+            {
+                // this shows all the members in community database
+                members: allMembers,
+                // this is if user has a session open
+                currentUser: req.session.currentUser
+            }
+        )
+        res.redirect('/posts')
+    })
+    // res.send('test')
+})
 
 
 // =========== EDIT ROUTE ===========//
@@ -81,23 +86,28 @@ post.put('/:id', (req, res) => {
 
 
 // =========== CREATE ROUTE ===========//
-post.post('/', (req, res) => {
-    Post.create(req.body, (error, createdPost) => {
-        res.redirect('/posts')
-    })
-})
-
-// ---- this is for the many to many relationship ---- //
+// this is for the regular schema without relationship
 // post.post('/', (req, res) => {
-//     Community.findById(req.body.memberId, (err, foundMember) => {
-//         Post.create(req.body, (err, createdPost) => {
-//             foundMember.posts.push(createdPost)
-//             foundMember.save((err, data) => {
-//                 res.redirect('/posts')
-//             })
-//         })
+//     Post.create(req.body, (error, createdPost) => {
+//         res.redirect('/posts')
 //     })
 // })
+
+// ---- this is for the relational schema ---- //
+// new post will push to members array
+post.post('/', (req, res) => {
+    // find by the document id; double check if this is right
+    Community.findById(req.body.communityId, (err, foundMember) => {
+        // creating post
+        Post.create(req.body, (err, createdPost) => {
+            // pushing post into member's post array
+            foundMember.posts.push(createdPost)
+            foundMember.save((err, data) => {
+                res.redirect('/community')
+            })
+        })
+    })
+})
 
 
 // =========== INDEX ROUTE ===========//
