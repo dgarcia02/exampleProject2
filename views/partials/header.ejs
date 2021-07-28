@@ -1,46 +1,18 @@
-<!-- <nav>
-    <div class="navContainer">
-        <h2>Health Inclusivity Community</h2>
-
-        <div class="iconsNav">
-            <a href="/community"><ion-icon name="home" ></ion-icon></a>
-            <a href="/community/new"><ion-icon name="add" ></ion-icon></a>
-            <!-- other version of add -->
-            <!-- <ion-icon name="add-circle"></ion-icon> -->
-
-            <!-- <ion-icon name="person" ></ion-icon>
-        </div>
-    </div> -->
-<!-- </nav> -->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+<div class="nav-wrapper #263238 blue-grey darken-4" id="navigation">
+  <a href="/community" class="brand-logo navWords">Stay Healthy, Stay Safe!</a>
+  <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <li><a href="/community"><i class="fas fa-home"></i></a></li>
+    <li><a href="/posts/new"><i class="fas fa-plus-circle"></i></a></li>
+    <% if(currentUser) { %>
+        <li><%=currentUser.username%></li>
+        <li>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="Log Out" class="">
+            </form>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <% } else { %>
+        <li><a href="/users/new" class="navWords">Sign Up</a></li>
+        <li><a href="/sessions/new" class="navWords">Log In</a></li>
+    <% } %>
+  </ul>
+</div>
