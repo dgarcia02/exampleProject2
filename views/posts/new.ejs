@@ -7,21 +7,27 @@
         <%- include ('../partials/header.ejs') %>
 
         <div class="container">
-            <h1>Create New Post</h1>
+            <h1>Create New Post <i class="fa-solid fa-face-tired"></i></h1>
 
             <form action="/posts" method="POST">
-                <select name="memberId">
-                    <% for (let i = 0; i < members.length; i++) { %>
-                        <option value="<%=members[i]._id%>"><%=members[i].name%></option>
-                    <% } %>
-                </select>
+                <!-- post photo -->
+                <label for="img">Photo:</label>
+                <input type="file" name="img" id="img" />
                 <br>
+                <!-- post caption -->
+                <label for="postText">Caption:</label>
+                <textarea name="postText"></textarea>
+                <br>
+                <!-- feeling/ activity -->
+                <label for="feeling">How are you feeling?</label>
+                    <select class="" name="feeling">
+                        <option value="Amazing!">Amazing!</option>
+                        <option value="Great!">Great!</option>
+                        <option value="Good!">Good!</option>
+                        <option value="Tired!">Tired!</option>
+                        <option value="I can't feel my legs!">I can't feel my legs!</option>
+                    </select>
 
-                Photo: <input type="url" name="img" id="img" />
-                <br>
-                Caption: <textarea name="postText"></textarea>
-                <br>
-                Feeling: <input type="text" name="feeling" id="feeling" />
                 <br>
                 <input type="submit" value="Post">
             </form>

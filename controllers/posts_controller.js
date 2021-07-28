@@ -1,15 +1,16 @@
 const express = require('express')
 const Post = require('../models/posts.js')
-const Community = require('../models/community.js')
+// const Community = require('../models/community.js')
 const post = express.Router()
 
 
 // =========== NEW ROUTE ===========//
 post.get('/new', (req, res) => {
     res.render('posts/new.ejs');
-    res.redirect('/posts/:id')
+    // res.redirect('/posts/:id')
 })
 
+// ---- this is for the many to many relationship ---- //
 // post.get('/new', (req, res) => {
 //     Community.find({}, (err, allMembers) => {
 //         res.render(
@@ -46,19 +47,19 @@ post.delete('/:id', (req, res) => {
 
 
 // =========== SHOW ROUTE ===========//
-post.get('/:id', (req, res) => {
-    Post.findById(req.params.id, (err, foundPost) => {
-        Community.findOne({'posts._id': req.params.id}, (err, foundMember) => {
-            res.render(
-                'community/show.ejs',
-                {
-                    member: foundMember,
-                    post: foundPost
-                }
-            )
-        })
-    })
-})
+// post.get('/:id', (req, res) => {
+//     Post.findById(req.params.id, (err, foundPost) => {
+//         Community.findOne({'posts._id': req.params.id}, (err, foundMember) => {
+//             res.render(
+//                 'community/show.ejs',
+//                 {
+//                     member: foundMember,
+//                     post: foundPost
+//                 }
+//             )
+//         })
+//     })
+// })
 
 
 // =========== UPDATE ROUTE ===========//
@@ -75,19 +76,23 @@ post.put('/:id', (req, res) => {
 
 // =========== CREATE ROUTE ===========//
 post.post('/', (req, res) => {
-    Community.findById(req.body.memberId, (err, foundMember) => {
-        Post.create(req.body, (err, createdPost) => {
-            foundMember.posts.push(createdPost)
-            foundMember.save((err, data) => {
-                res.redirect('/posts')
-            })
-        })
+    Post.create(req.body, (error, createdPost) => {
+        res.redirect('/posts')
     })
 })
 
+// ---- this is for the many to many relationship ---- //
 // post.post('/', (req, res) => {
-//     const
+//     Community.findById(req.body.memberId, (err, foundMember) => {
+//         Post.create(req.body, (err, createdPost) => {
+//             foundMember.posts.push(createdPost)
+//             foundMember.save((err, data) => {
+//                 res.redirect('/posts')
+//             })
+//         })
+//     })
 // })
+
 
 // =========== INDEX ROUTE ===========//
 post.get('/', (req, res) => {

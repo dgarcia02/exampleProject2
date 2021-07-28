@@ -8,12 +8,12 @@ const postSchema = new Schema({
     feeling: String,
     img: String,
     points: { default: 0 },
-    postedBy: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Community"
-        }
-    ]
+    // postedBy: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Community"
+    //     }
+    // ]
 })
 
 const Post = mongoose.model('Post', postSchema);
