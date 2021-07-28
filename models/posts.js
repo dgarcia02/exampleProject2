@@ -1,19 +1,14 @@
 const mongoose = require('mongoose')
-// const Community = require('./community.js')
 const Schema = mongoose.Schema
+// const Community = require('./community.js')
 
 const postSchema = new Schema({
-    postText: String,
+    caption: String,
     postDate: { type: Date, default: Date.now },
     feeling: String,
     img: String,
     points: { default: 0 },
-    // postedBy: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: "Community"
-    //     }
-    // ]
+    memberId: String
 })
 
 const Post = mongoose.model('Post', postSchema);

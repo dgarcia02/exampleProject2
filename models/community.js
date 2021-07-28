@@ -18,12 +18,7 @@ const communitySchema = new Schema({
     },
     points: { default: 0 },
     img: String,
-    posts: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Post"
-        }
-    ]
+    posts: [Post.schema]
 })
 
 // this sets up the collection in the database
