@@ -6,7 +6,12 @@ const community = express.Router()
 
 // =========== NEW ROUTE ===========//
 community.get('/new', (req, res) => {
-    res.render('community/new.ejs');
+    res.render(
+        'community/new.ejs',
+        {
+            currentUser: req.session.currentUser
+        }
+    );
     res.redirect('/community/:id')
     // res.send('test')
 })
@@ -17,7 +22,8 @@ community.get('/:id/edit', (req, res) => {
         res.render(
             'community/edit.ejs',
             {
-                member: foundMember
+                member: foundMember,
+                currentUser: req.session.currentUser
             }
         )
     })
@@ -36,7 +42,8 @@ community.get('/:id', (req, res) => {
         res.render(
             'community/show.ejs',
             {
-                member: foundMember
+                member: foundMember,
+                currentUser: req.session.currentUser
             }
         )
     })
@@ -67,7 +74,8 @@ community.get('/', (req, res) => {
         res.render(
             'community/index.ejs',
             {
-                members: allMembers
+                members: allMembers,
+                currentUser: req.session.currentUser
             }
         )
     })

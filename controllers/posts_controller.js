@@ -6,7 +6,12 @@ const post = express.Router()
 
 // =========== NEW ROUTE ===========//
 post.get('/new', (req, res) => {
-    res.render('posts/new.ejs');
+    res.render(
+        'posts/new.ejs',
+        {
+            currentUser: req.session.currentUser
+        }
+    );
     // res.redirect('/posts/:id')
 })
 
@@ -31,7 +36,8 @@ post.get('/:id/edit', (req, res) => {
         res.render(
             'posts/edit.ejs',
             {
-                post: foundPost
+                post: foundPost,
+                currentUser: req.session.currentUser
             }
         )
     })
@@ -100,7 +106,8 @@ post.get('/', (req, res) => {
         res.render(
             'posts/index.ejs',
             {
-                posts: foundPosts
+                posts: foundPosts,
+                currentUser: req.session.currentUser
             }
         )
     })
