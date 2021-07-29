@@ -38,14 +38,16 @@
                         <option value="Tired! &#128555;">Tired! &#128555;</option>
                         <option value="I can't feel my legs! &#128565;">I can't feel my legs! &#128565;</option>
                     </select>
+                    <br>
 
-                    <!-- point system -->
-                    <label for="pointSystem">What was your activity?</label>
+                    <!-- point system activity -->
+                    <label for="pointSystem.activity">What was your activity?</label>
                         <select class="form-select" aria-label="Default select example" name="pointSystem.activity">
                             <option value="Active Sport">Active Sport</option>
                             <option value="Biking">Biking</option>
                             <option value="Boot Camp">Boot Camp</option>
                             <option value="Exercise Class">Exercise Class</option>
+                            <option value="Hiking">Hiking</option>
                             <option value="Jump Rope">Jump Rope</option>
                             <option value="Run or Jog">Run or Jog</option>
                             <option value="Steps">Steps</option>
@@ -54,8 +56,17 @@
                             <option value="Walk">Walk</option>
                         </select>
                     <br>
+                    <!-- point system amount -->
+                    <label for="pointSystem.amount">How long was your workout?</label>
+                    <select class="form-select" aria-label="Default select example" name="pointSystem.amount">
 
-                    
+                            <option value="5 Minutes">5 Minutes</option>
+                            <option value="10 Minutes">10 Minutes</option>
+                            <option value="15 Minutes">15 Minutes</option>
+                            <option value="20 Minutes">20 Minutes</option>
+                            <option value="30 Minutes">30 Minutes</option>
+
+                    </select>
 
                     <input type="submit" value="Post">
                 </form>
