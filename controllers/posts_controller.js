@@ -5,17 +5,6 @@ const post = express.Router()
 
 
 // =========== NEW ROUTE ===========//
-// this is for the regular schema new.ejs
-// post.get('/new', (req, res) => {
-//     res.render(
-//         'posts/new.ejs',
-//         {
-//             currentUser: req.session.currentUser
-//         }
-//     );
-//     // res.redirect('/posts/:id')
-// })
-
 // ---- this is for the relational ---- //
 post.get('/new', (req, res) => {
     // try to find only member ObjectId
@@ -50,49 +39,38 @@ post.get('/:id/edit', (req, res) => {
 
 
 // =========== DELETE ROUTE ===========//
+// ---- this is for the relational schema ---- //
 post.delete('/:id', (req, res) => {
-    Post.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/posts')
+    Post.findByIdAndRemove(req.params.id, (err, foundPost) => {
+        Community.findOne({'posts._id':req.params.id}, (err, foundMember) => {
+            foundMember.posts.id(req.params.id).remove();
+            foundMember.save((err, data) => {
+                res.redirect('/posts')
+            })
+        })
     })
 })
 
 
 // =========== SHOW ROUTE ===========//
-// post.get('/:id', (req, res) => {
-//     Post.findById(req.params.id, (err, foundPost) => {
-//         Community.findOne({'posts._id': req.params.id}, (err, foundMember) => {
-//             res.render(
-//                 'community/show.ejs',
-//                 {
-//                     member: foundMember,
-//                     post: foundPost
-//                 }
-//             )
-//         })
-//     })
-// })
 
 
 // =========== UPDATE ROUTE ===========//
+// ---- this is for the relational schema ---- //
 post.put('/:id', (req, res) => {
-    Post.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true },
-        (error, updatedPost) => {
-        res.redirect('/posts')
+    Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost) => {
+        Community.findOne({ 'posts._id':req.params.id }, (err, foundMember) => {
+            foundMember.posts.id(req.params.id).remove();
+            foundMember.posts.push(updatedPost);
+            foundMember.save((err, data) => {
+                res.redirect('/posts')
+            })
+        })
     })
 })
 
 
 // =========== CREATE ROUTE ===========//
-// this is for the regular schema without relationship
-// post.post('/', (req, res) => {
-//     Post.create(req.body, (error, createdPost) => {
-//         res.redirect('/posts')
-//     })
-// })
-
 // ---- this is for the relational schema ---- //
 // new post will push to members array
 post.post('/', (req, res) => {
@@ -146,3 +124,58 @@ post.get('/setup/seed', (req, res) => {
 
 
 module.exports = post;
+
+
+
+// =========== NEW ROUTE ===========//
+// this is for the regular schema new.ejs
+// post.get('/new', (req, res) => {
+//     res.render(
+//         'posts/new.ejs',
+//         {
+//             currentUser: req.session.currentUser
+//         }
+//     );
+//     // res.redirect('/posts/:id')
+// })
+
+// =========== SHOW ROUTE ===========//
+// post.get('/:id', (req, res) => {
+//     Post.findById(req.params.id, (err, foundPost) => {
+//         Community.findOne({'posts._id': req.params.id}, (err, foundMember) => {
+//             res.render(
+//                 'community/show.ejs',
+//                 {
+//                     member: foundMember,
+//                     post: foundPost
+//                 }
+//             )
+//         })
+//     })
+// })
+
+// =========== CREATE ROUTE ===========//
+// this is for the regular schema without relationship
+// post.post('/', (req, res) => {
+//     Post.create(req.body, (error, createdPost) => {
+//         res.redirect('/posts')
+//     })
+// })
+
+// =========== DELETE ROUTE ===========//
+// post.delete('/:id', (req, res) => {
+//     Post.findByIdAndRemove(req.params.id, (err, data) => {
+//         res.redirect('/posts')
+//     })
+// })
+
+// =========== UPDATE ROUTE ===========//
+// post.put('/:id', (req, res) => {
+//     Post.findByIdAndUpdate(
+//         req.params.id,
+//         req.body,
+//         { new: true },
+//         (error, updatedPost) => {
+//         res.redirect('/posts')
+//     })
+// })
