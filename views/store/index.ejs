@@ -19,21 +19,16 @@
                         <h6>Fabric: <%=store[i].description.fabric%></h6>
                         <h6>Color: <%=store[i].description.color%></h6>
                         <h5>$<%=store[i].price%> / <%=store[i].points%> points</h5>
-                        <div class="quantity">
+                        <!-- <div class="quantity">
                             <h6><b>Quantity:</b></h6>
                             <div class="qButtons">
                                 <button type="button" name="less-btn" class="qty-btn" id="less-btn">-</button>
                                 <% let num = 0 %>
-                                <% $('#less-btn').click(() => { %>
-                                    num--
-                                <% }) %>
-                                <% $('#add-btn').click(() => { %>
-                                    num++
-                                <% }) %>
+
                                 <p><%=num%></p>
                                 <button type="button" name="add-btn" class="qty-btn" id="add-btn">+</button>
                             </div>
-                        </div>
+                        </div> -->
                         <button type="button" class="btn btn-outline-secondary add-cart">Add to Cart</button>
                     </li>
                 <% } %>

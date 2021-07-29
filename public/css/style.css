@@ -36,6 +36,11 @@ p {
     font-size: 0.8rem;
 }
 
+.logOut-btn {
+    background-color: #2d3142;
+    color: #F5F5F5;
+}
+
 /* ========== Icons ========== */
 ion-icon {
     color: #E0E0E0;
@@ -259,7 +264,8 @@ li {
 }
 
 .add-cart {
-    margin-left: 9.5em;
+    /* margin-left: 9.5em; */
+    margin-bottom: 2em;
 }
 
 
