@@ -114,7 +114,6 @@ li {
 }
 
 /* ========== New Member ========== */
-/* ========== Edit Member ========== */
 
 
 /* ========== Community Show Page ========== */
@@ -189,12 +188,37 @@ li {
 /* ========== Store Index Page ========== */
 .store_img {
     width: 50%;
-
 }
 
 .product-container {
     margin-bottom: 2em;
-
 }
+
+.quantity {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1.5px solid gray;
+    border-radius: 6px;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+.qButtons {
+    display: flex;
+}
+
+.qty-btn {
+    border: none;
+    width: 36%;
+    font-size: 1.6rem;
+    background-color: #F5F5F5;
+}
+
+.add-cart {
+    margin-left: 9.5em;
+}
+
 
 /*  */

@@ -3,6 +3,9 @@ const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const session = require('express-session')
+// const jsdom = require( "jsdom" );
+// const dom = new jsdom.JSDOM("")
+// const $ = require('jquery')(dom.window)
 
 
 // =============== CONTROLLERS ===============//
@@ -55,6 +58,7 @@ app.use('/posts', postsController);
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
 app.use('/store', storeController);
+
 
 
 // =============== ROUTES ===============//
