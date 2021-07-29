@@ -41,7 +41,9 @@ post.get('/:id/edit', (req, res) => {
 // =========== DELETE ROUTE ===========//
 // ---- this is for the relational schema ---- //
 post.delete('/:id', (req, res) => {
+    // finding the specific post by its id
     Post.findByIdAndRemove(req.params.id, (err, foundPost) => {
+        // finding the same post under the community member id
         Community.findOne({'posts._id':req.params.id}, (err, foundMember) => {
             foundMember.posts.id(req.params.id).remove();
             foundMember.save((err, data) => {
@@ -58,7 +60,9 @@ post.delete('/:id', (req, res) => {
 // =========== UPDATE ROUTE ===========//
 // ---- this is for the relational schema ---- //
 post.put('/:id', (req, res) => {
+    // updating the post from the post schema
     Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost) => {
+        // finding the post under the community schema and updating it
         Community.findOne({ 'posts._id':req.params.id }, (err, foundMember) => {
             foundMember.posts.id(req.params.id).remove();
             foundMember.posts.push(updatedPost);

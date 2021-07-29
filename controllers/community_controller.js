@@ -1,6 +1,6 @@
 const express = require('express')
 const Community = require('../models/community.js')
-// const Post = require('../models/posts.js')
+const Post = require('../models/posts.js')
 const community = express.Router()
 
 
@@ -30,11 +30,33 @@ community.get('/:id/edit', (req, res) => {
 })
 
 // =========== DELETE ROUTE ===========//
-community.delete('/:id', (req, res) => {
-    Community.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/community')
+// community.delete('/:id', (req, res) => {
+//     Community.findByIdAndRemove(req.params.id, (err, data) => {
+//         res.redirect('/community')
+//     })
+// })
+
+// deleting the post from the community document if deleted
+community.delete(':id', (req, res) => {
+    Community.findByIdAndRemove(req.params.id, (err, foundMember) => {
+        const postsIds = [];
+        // looping through the posts array to grab the specific post
+        for (let i = 0; i < foundMember.posts.length; i++) {
+            postsIds.push(foundMember.posts[i]._id);
+        }
+        Post.remove(
+            {
+                _id: {
+                    $in: postsIds
+                }
+            },
+            (err, data) => {
+                res.redirect('/posts')
+            }
+        )
     })
 })
+
 
 // =========== SHOW ROUTE ===========//
 community.get('/:id', (req, res) => {
