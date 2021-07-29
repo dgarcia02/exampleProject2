@@ -8,6 +8,11 @@ const postSchema = new Schema({
     feeling: String,
     img: String,
     points: { default: 0 },
+    pointSystem: {
+        activity: String,
+        amount: Number,
+        reward: Number
+    },
     memberId: String
 })
 

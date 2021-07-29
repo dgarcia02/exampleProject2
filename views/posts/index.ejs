@@ -14,10 +14,11 @@
                     <div class="entry">
                         <img src="<%=posts[i].img%>" alt="photo" class="feed-pics">
                         <div class="content">
-                            <p><%=posts[i].caption%></p>
-                            <p><%=posts[i].feeling%></p>
-                            <p><%=posts[i].points%></p>
-                            <p><%=posts[i].postDate%></p>
+                            <p class="feed-text"><%=posts[i].caption%></p>
+                            <p class="feed-text"><b>Feeling?</b> <%=posts[i].feeling%></p>
+                            <p class="feed-text"><b>Activity:</b> </p>
+                            <p class="feed-text"><b>Points Earned:</b> <%=posts[i].points%></p>
+                            <p class="feed-text"><%=posts[i].postDate%></p>
                             <!-- edit and delete buttons -->
                             <div class="feed-btns">
                                 <form action="/posts/<%=posts[i]._id%>?_method=DELETE" method="POST" >
