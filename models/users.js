@@ -9,13 +9,3 @@ const userSchema = Schema({
 const User = mongoose.model('User', userSchema)
 
 module.exports = User;
-
-
-
-// let num = 0
-// $('#less-btn').click(() => {
-//     num--
-// })
-// $('#add-btn').click(() => {
-//     num++
-// })

@@ -4,22 +4,32 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
+        <!-- header and nav partial -->
         <%- include ('../partials/header.ejs') %>
 
         <div class="container">
-            <h1>Edit Post</h1>
+            <h3>Edit Post</h3>
             <main>
                 <form action="/posts/<%=post.id%>?_method=PUT" method="POST">
+                    <!-- post photo -->
                     <label for="img">Photo:</label>
                     <input type="url" name="img" value="<%=post.img%>" id="img" />
                     <br>
-                    <label for="postText">Caption:</label>
-                    <textarea name="postText"><%=post.postText%></textarea>
+                    <!-- post caption -->
+                    <label for="caption">Caption:</label>
+                    <textarea name="caption" value="<%=post.caption%>"><%=post.caption%></textarea>
                     <br>
-                    <label for="feeling">Feeling:</label>
-                    <input type="text" value="<%=post.feeling%>">
-                    <br>
-                    <input type="submit" value="Update Post">
+                    <!-- feeling/ activity -->
+                    <label for="feeling">How did that workout feel?</label>
+                        <select class="form-select" aria-label="Default select example" name="feeling">
+                            <option value="Amazing! &#128516;">Amazing! &#128516;</option>
+                            <option value="Great! &#128512;">Great! &#128512;</option>
+                            <option value="Good! &#128524;">Good! &#128524;</option>
+                            <option value="Tired! &#128555;">Tired! &#128555;</option>
+                            <option value="I can't feel my legs! &#128565;">I can't feel my legs! &#128565;</option>
+                        </select>
+                        <br>
+                        <input type="submit" value="Edit">
                 </form>
             </main>
         </div>

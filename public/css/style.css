@@ -181,8 +181,24 @@ li {
     margin: auto;
     width: 60%;
     height: 70%;
-    border: 2px solid lightgray;
+    border: 1.5px solid lightgray;
+    border-radius: 1px;
     margin-bottom: 2em;
+    background-color: #F5F5F5;
+}
+
+.content {
+    width: 80%;
+    margin: 1em 1.5em;
+}
+
+.feed-btns {
+    display: flex;
+    margin: 0.5em;
+}
+
+.feed-delete {
+    margin-right: 0.5em;
 }
 
 /* ========== Store Index Page ========== */
