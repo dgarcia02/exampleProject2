@@ -13,12 +13,12 @@
                 <div class="profilesList">
                     <ul class="profileItems">
                         <% for (let i = 0; i < members.length; i++) { %>
-                            <li>
+                            <li class="communityList">
                                 <a href="/community/<%=members[i]._id%>"><img src="<%=members[i].img%>" alt="profilePic" class="profilePic"></a>
                                 <br>
                                 <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
                                 <br>
-                                <h6><%=members[i].pronouns%></h6>
+                                <p><%=members[i].pronouns%></p>
                             </li>
                         <% } %>
                     </ul>

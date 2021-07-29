@@ -8,7 +8,7 @@ body {
     margin: auto;
     width: 60%;
     height: 620px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 footer {
@@ -22,7 +22,7 @@ footer {
 }
 
 main {
-    width: 60%;
+    width: 100%;
 }
 
 a {
@@ -30,7 +30,7 @@ a {
     color: black;
 }
 
-/* footer icons */
+/* ========== Icons ========== */
 ion-icon {
     color: #E0E0E0;
     font-size: 25px;
@@ -45,7 +45,7 @@ ion-icon:hover {
 i, .navWords {
     color: #FFFFFF;
     padding-right: 1.3em;
-    opacity: 50%;
+    opacity: 60%;
 }
 
 .nav-link:hover {
@@ -63,7 +63,7 @@ i:hover {
 /* ========== Community ========== */
 .profilesList {
     display: flex;
-    width: 60%;
+    width: 100%;
     justify-content: center;
 }
 
@@ -71,6 +71,7 @@ i:hover {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    /* align-items: center; */
 }
 
 .profilePic {
@@ -78,15 +79,36 @@ i:hover {
     height: 130px;
     border-radius: 50%;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: transform .2s;
+}
+
+.profilePic:hover {
+    transform: scale(1);
+}
+
+.communityList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: .7em;
 }
 
 h3, h4 {
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #EC6A32;
+    border-bottom: 1px solid lightgray;
+    margin: 1em 0;
+}
+
+p {
+    font-size: .7rem;
+    opacity: 60%;
+    margin-top: 0;
 }
 
 li {
     text-decoration: none;
+    list-style-type: none;
 }
 
 /* ========== New Member ========== */
