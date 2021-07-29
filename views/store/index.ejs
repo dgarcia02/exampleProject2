@@ -4,9 +4,25 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
-        <nav>
-            <%- include ('../partials/header.ejs') %>
-        </nav>
-        <h2>Store</h2>
+        <!-- header and nav partial -->
+        <%- include ('../partials/header.ejs') %>
+        <div class="container">
+            <h3 class="indexTitle">Store</h3>
+            <ul class="products row">
+                <% for (let i = 0; i < store.length; i++) { %>
+                    <li>
+                        <img src="<%=store[i].img%>" alt="product image">
+                        <br>
+                        <h4><%=store[i].product%></h4>
+                        Description:
+                        <h6>Brand: <%=store[i].description.brand%></h6>
+                        <h6>Fabric: <%=store[i].description.fabric%></h6>
+                        <h6>Color: <%=store[i].description.color%></h6>
+                        <h5>$<%=store[i].price%></h5>/
+                        <h5><%=store[i].points%> points</h5>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
     </body>
 </html>
