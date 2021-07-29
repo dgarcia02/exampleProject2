@@ -10,8 +10,8 @@ const postSchema = new Schema({
     points: { default: 0 },
     pointSystem: {
         activity: String,
-        amount: Number,
-        reward: Number
+        amount: Number
+        // reward: Number
     },
     memberId: String
 })

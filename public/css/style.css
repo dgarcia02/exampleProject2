@@ -64,7 +64,9 @@ i:hover {
     transition:opacity 1s;
 }
 
-
+.logIn-btn {
+    margin: 1.5em 0;
+}
 
 /* ========== Community ========== */
 .profilesList {
@@ -114,7 +116,26 @@ li {
 }
 
 /* ========== New Member ========== */
+.submit-btn {
+    background-color: #EF8557;
+    border: 1px solid lightgray;
+    /* border: 8px; */
+    padding: 8px 16px;
+    border-radius: 7px;
+    font-size: 0.8rem;
+    opacity: 70%;
+}
 
+.submit-btn:hover {
+    opacity: 100%;
+    color: #FFFFFF;
+    transition:opacity 1s;
+    background-color: #EF8557;
+}
+
+.new-page {
+    margin-bottom: 0.7em;
+}
 
 /* ========== Community Show Page ========== */
 /* profile about section */

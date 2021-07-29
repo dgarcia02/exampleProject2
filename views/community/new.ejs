@@ -9,77 +9,96 @@
 
         <div class="container">
 
-            <h2>New Profile</h2>
-            <form class="" action="/community" method="POST">
-                <!-- ============== PROFILE PIC ============== -->
-                <label for="img">Profile Picture:</label>
-                <input type="url" name="img" id="img"/>
-                <br>
+            <h3 class="indexTitle">New Profile</h3>
+            <main>
+                <form class="" action="/community" method="POST" style="width: 50%; margin: auto; padding: 1em;">
+                    <div class="row">
+                        <!-- ============== PROFILE PIC ============== -->
+                        <label for="img" class="new-page col">Profile Picture:</label>
+                        <input type="url" name="img" id="img" class="new-page col" placeholder=".jpg"/>
+                        <br>
+                    </div>
 
-                <!-- ============== NAME ============== -->
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name"/>
-                <br>
+                    <div class="row">
+                        <!-- ============== NAME ============== -->
+                        <label for="name" class="new-page col">Name:</label>
+                        <input type="text" name="name" id="name" class="new-page col"/>
+                        <br>
+                    </div>
 
-                <!-- ========= DATE OF BIRTH ========= -->
-                <label for="dateOfBirth">Date of Birth:</label>
-                    <select class="" name="dateOfBirth.month">
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                    </select>
+                    <div class="row">
+                        <!-- ========= DATE OF BIRTH ========= -->
+                        <label for="dateOfBirth" class="new-page col">Date of Birth:</label>
+                        <div class="options new-page col">
+                            <!-- dob month -->
+                            <select class="new-page col" name="dateOfBirth.month">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <!-- dob day -->
+                            <select class="" name="dateOfBirth.day">
+                                <% for (let i = 1; i <= 31; i++) { %>
+                                    <option value="<%=[i]%>"><%=[i]%></option>
+                                <% } %>
+                            </select>
+                            <!-- dob year -->
+                            <select class="" name="dateOfBirth.year">
+                                <% for (let i = 2021; i >= 1930; i--) { %>
+                                    <option value="<%=[i]%>"><%=[i]%></option>
+                                <% } %>
+                            </select>
+                            <br>
+                        </div>
+                    </div>
 
-                    <select class="" name="dateOfBirth.day">
-                        <% for (let i = 1; i <= 31; i++) { %>
-                            <option value="<%=[i]%>"><%=[i]%></option>
-                        <% } %>
-                    </select>
+                    <div class="row">
+                        <!-- ========= Gender ========= -->
+                        <label for="gender" class="new-page col">Gender:</label>
+                            <select class="new-page col" name="gender">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="genderNeutral">Gender Neutral</option>
+                                <option value="nonBinary">Non Binary</option>
+                                <option value="Prefer Not to Say">Prefer Not To Say</option>
+                            </select>
+                        <br>
+                    </div>
 
+                    <div class="row">
+                        <!-- ============= PRONOUNS ============= -->
+                        <label for="pronouns" class="new-page col">Pronouns:</label>
+                            <select class="new-page col" name="pronouns">
+                                <option value="She/Her">She/Her</option>
+                                <option value="He/Him">He/Him</option>
+                                <option value="They/Them">They/Them</option>
+                            </select>
+                        <br>
+                    </div>
 
-                    <select class="" name="dateOfBirth.year">
-                        <% for (let i = 2021; i >= 1930; i--) { %>
-                            <option value="<%=[i]%>"><%=[i]%></option>
-                        <% } %>
-                    </select>
-                    <br>
-
-
-                <!-- ========= Gender ========= -->
-                <label for="gender">Gender:</label>
-                    <select class="" name="gender">
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                        <option value="genderNeutral">Gender Neutral</option>
-                        <option value="nonBinary">Non Binary</option>
-                        <option value="Prefer Not to Say">Prefer Not To Say</option>
-                    </select>
-                <br>
-
-                <!-- ============= PRONOUNS ============= -->
-                <label for="pronouns">Pronouns:</label>
-                    <select class="" name="pronouns">
-                        <option value="She/Her">She/Her</option>
-                        <option value="He/Him">He/Him</option>
-                        <option value="They/Them">They/Them</option>
-                    </select>
-                <br>
-
-                <!-- ============== LOCATION ============== -->
-                <label for="location">Location:</label>
-                <input type="text" name="location.state" placeholder="State" id="state" />
-                <input type="text" name="location.zip" placeholder="Zip" id="zip" />
-                <br>
-                <input type="submit" value="Submit" class="submit-btn"/>
-            </form>
+                    <div class="row">
+                        <!-- ============== LOCATION ============== -->
+                        <label for="location" class="new-page col">Location:</label>
+                        <div class="new-page col">
+                            <div class="row">
+                                <input type="text" name="location.state" placeholder="State" id="state" class="new-page col"/>
+                                <input type="text" name="location.zip" placeholder="Zip" id="zip" class="new-page col"/>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <input type="submit" value="Submit" class="submit-btn"/>
+                </form>
+            </main>
 
         </div>
         <footer>

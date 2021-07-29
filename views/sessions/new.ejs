@@ -4,19 +4,24 @@
     <%- include ('../partials/head.ejs') %>
   </head>
   <body>
-    <nav>
+      <!-- header and nav partial -->
       <%- include ('../partials/header.ejs') %>
-    </nav>
+
     <div class="container">
-      <h1>Log In</h1>
-      <form action="/sessions" method="POST">
+      <h3 class="indexTitle">Log In</h3>
+      <form action="/sessions" method="POST" style="margin-left: 8em;">
         <label for="name">User Name:</label>
-        <input type="text" name="username" required/>
+        <input type="text" name="username" style="margin-right: 2em;" required/>
         <label for="color">Password:</label>
         <input type="password" name="password" />
         <br>
-        <input type="submit" value="Submit">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <input type="submit" value="Submit" class="logIn-btn btn btn-outline-secondary">
+        </div>
       <form>
     </div>
+    <footer>
+        <%- include ('../partials/footer.ejs') %>
+    </footer>
   </body>
 </html>

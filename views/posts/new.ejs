@@ -10,7 +10,7 @@
             <h3>New Post</h3>
 
             <main>
-                <form action="/posts" method="POST">
+                <form action="/posts" method="POST" style="width: 60%; margin: auto;">
                     <!-- name is the document property that determines the community member -->
                         <!-- double check if communityId is right -->
                     <select class="form-select" aria-label="Default select example" name="communityId">
@@ -59,23 +59,24 @@
                     <!-- point system amount -->
                     <label for="pointSystem.amount">How long was your workout?</label>
                     <select class="form-select" aria-label="Default select example" name="pointSystem.amount">
-
-                            <option value="5 Minutes">5 Minutes</option>
-                            <option value="10 Minutes">10 Minutes</option>
-                            <option value="15 Minutes">15 Minutes</option>
-                            <option value="20 Minutes">20 Minutes</option>
-                            <option value="30 Minutes">30 Minutes</option>
-
+                        <option value="5 Minutes">5 Minutes</option>
+                        <option value="10 Minutes">10 Minutes</option>
+                        <option value="15 Minutes">15 Minutes</option>
+                        <option value="20 Minutes">20 Minutes</option>
+                        <option value="30 Minutes">30 Minutes</option>
                     </select>
+                    <br>
+
+                    <!-- points earned -->
+                    <label for="points">Points Earned:</label>
+                        <input class="form-control" type="text" name="points" value="5" aria-label="Disabled input example" disabled readonly/>
 
                     <input type="submit" value="Post">
                 </form>
             </main>
 
         </div>
-        <footer>
-            <%- include ('../partials/footer.ejs') %>
-        </footer>
+
         <!-- <script type="module">
             import { Toast } from 'bootstrap.esm.min.js'
 
