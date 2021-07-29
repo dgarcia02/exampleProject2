@@ -103,7 +103,7 @@ post.post('/', (req, res) => {
             // pushing post into member's post array
             foundMember.posts.push(createdPost)
             foundMember.save((err, data) => {
-                res.redirect('/community')
+                res.redirect('/posts')
             })
         })
     })
@@ -130,13 +130,13 @@ post.get('/setup/seed', (req, res) => {
     Post.create(
         [
             {
-                postText: "Best part of my day! #BikeAdventures",
+                caption: "Best part of my day! #BikeAdventures",
                 // postDate: { type: Date, default: Date.now },
                 feeling: 'Good',
                 img: "https://images.unsplash.com/photo-1598132669477-d2d3e1a2501f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80",
                 // points: { default: 0 },
                 // postedBy: { type: mongoose.Schema.Types.ObjectId }
-            }
+            },
         ],
         (error, data) => {
             res.redirect('/posts')

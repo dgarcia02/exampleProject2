@@ -21,8 +21,8 @@ footer {
     color: #E0E0E0;
 }
 
-#navigation {
-    background-color: #323649;
+main {
+    width: 60%;
 }
 
 a {
@@ -30,6 +30,7 @@ a {
     color: black;
 }
 
+/* footer icons */
 ion-icon {
     color: #E0E0E0;
     font-size: 25px;
@@ -40,13 +41,23 @@ ion-icon:hover {
     color: #EF8557;
 }
 
-i, .navWords, .brand-logo {
+/* nav icons and links */
+i, .navWords {
     color: #FFFFFF;
+    padding-right: 1.3em;
+    opacity: 50%;
 }
 
-.navWords:hover {
+.nav-link:hover {
     color: #EF8557;
 }
+
+i:hover {
+    opacity: 100%;
+    color: #EF8557;
+    transition:opacity 1s;
+}
+
 
 
 /* ========== Community ========== */

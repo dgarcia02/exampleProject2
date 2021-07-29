@@ -9,11 +9,11 @@
         </nav>
         <div class="container">
             <div class="profileInfo">
-                <img src="<%= member.img %>" alt="" class="showProfilePic">
+                <img src="<%=member.img%>" alt="" class="showProfilePic">
                 <section class="about">
-                    <h2><%= member.name %></h2>
-                    <h4><%= member.pronouns %></h4>
-                    <!-- <h4>Points: <%= member.points %></h4> -->
+                    <h2><%=member.name%></h2>
+                    <h4><%=member.pronouns%></h4>
+
                     <!-- Edit Button -->
                     <button type="button" name="button" class="edit-btn"><a href="/community/<%=member._id%>/edit" class="edit-btnLetters">Edit Profile</a></button>
                 </section>
@@ -27,8 +27,14 @@
             <div class="postsSection">
                 <h5>Posts:</h5>
                 <ul>
-                    <li>
-                    </li>
+                    <% for (let i = 0; i < member.posts.length; i++) { %>
+                        <li>
+                            <img src="<%=member.posts[i].img%>" alt="photo">
+                            <p><%=member.posts[i].caption%></p>
+                            <p><%=member.posts[i].feeling%></p>
+                            <p><%=member.posts[i].postDate%></p>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
 

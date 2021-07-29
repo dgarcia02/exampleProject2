@@ -4,8 +4,9 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
-        <%- include ('../partials/header.ejs') %>
-
+        <nav>
+            <%- include ('../partials/header.ejs') %>
+        </nav>
         <div class="container">
             <h2>Feed</h2>
 
@@ -13,7 +14,6 @@
             <ul>
                 <% for (let i = 0; i < posts.length; i++) { %>
                     <div class="entry">
-
                             <img src="<%=posts[i].img%>" alt="photo">
                             <p><%=posts[i].postText%></p>
                             <p><%=posts[i].feeling%></p>

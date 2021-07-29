@@ -11,42 +11,51 @@
         <div class="container">
             <h3>New Post</h3>
 
-            <form action="/posts" method="POST">
-                <!-- name is the document property that determines the community member -->
-                    <!-- double check if communityId is right -->
-                <select class="" name="communityId">
-                    <!-- looping through all the commumnity members profiles -->
-                    <% for (let i = 0; i < members.length; i++) { %>
-                        <!-- id is members specified object id -->
-                        <option value="<%=members[i]._id%>"><%=members[i].name%></option>
-                    <% } %>
-                </select>
-                <br>
-                <!-- post photo -->
-                <label for="img">Photo:</label>
-                <input type="file" name="img" id="img" />
-                <br>
-                <!-- post caption -->
-                <label for="postText">Caption:</label>
-                <textarea name="postText"></textarea>
-                <br>
-                <!-- feeling/ activity -->
-                <label for="feeling">How are you feeling?</label>
-                    <select class="" name="feeling">
-                        <option value="Amazing!">Amazing!</option>
-                        <option value="Great!">Great!</option>
-                        <option value="Good!">Good!</option>
-                        <option value="Tired!">Tired!</option>
-                        <option value="I can't feel my legs!">I can't feel my legs!</option>
+            <main>
+                <form action="/posts" method="POST">
+                    <!-- name is the document property that determines the community member -->
+                        <!-- double check if communityId is right -->
+                    <select class="form-select" aria-label="Default select example" name="communityId">
+                        <!-- looping through all the commumnity members profiles -->
+                        <% for (let i = 0; i < members.length; i++) { %>
+                            <!-- id is members specified object id -->
+                            <option value="<%=members[i]._id%>"><%=members[i].name%></option>
+                        <% } %>
                     </select>
+                    <br>
+                    <!-- post photo -->
+                    <label for="img">Photo:</label>
+                    <input type="text" name="img" id="img" />
+                    <br>
+                    <!-- post caption -->
+                    <label for="caption">Caption:</label>
+                    <textarea name="caption"></textarea>
+                    <br>
+                    <!-- feeling/ activity -->
+                    <label for="feeling">How are you feeling?</label>
+                        <select class="form-select" aria-label="Default select example" name="feeling">
+                            <option value="Amazing!">Amazing!</option>
+                            <option value="Great!">Great!</option>
+                            <option value="Good!">Good!</option>
+                            <option value="Tired!">Tired!</option>
+                            <option value="I can't feel my legs!">I can't feel my legs!</option>
+                        </select>
 
-                <br>
-                <input type="submit" value="Post">
-            </form>
+                    <br>
+                    <input type="submit" value="Post">
+                </form>
+            </main>
 
         </div>
         <footer>
             <%- include ('../partials/footer.ejs') %>
         </footer>
+        <!-- <script type="module">
+            import { Toast } from 'bootstrap.esm.min.js'
+
+            Array.from(document.querySelectorAll('.toast'))
+            .forEach(toastNode => new Toast(toastNode))
+        </script> -->
+
     </body>
 </html>
