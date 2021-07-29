@@ -8,31 +8,38 @@
             <%- include ('../partials/header.ejs') %>
         </nav>
         <div class="container">
-            <div class="profileInfo">
-                <img src="<%=member.img%>" alt="" class="showProfilePic">
-                <section class="about">
-                    <h2><%=member.name%></h2>
-                    <h4><%=member.pronouns%></h4>
-
+            <div class="profileInfo row">
+                <div class="col">
+                    <img src="<%=member.img%>" alt="" class="showProfilePic">
+                </div>
+                <div class="col text-center align-self-center">
+                    <h3><%=member.name%></h3>
+                    <h6 id="pronouns"><%=member.pronouns%></h6>
+                    <h6>Points: <%=member.points%></h6>
+                    <h6>Posts# <% for (let i = 0; i < member.posts.length; i++) { %>
+                            <%=i%>
+                    <% } %></h6>
+                </div>
+                <div class="col text-end">
                     <!-- Edit Button -->
-                    <button type="button" name="button" class="edit-btn"><a href="/community/<%=member._id%>/edit" class="edit-btnLetters">Edit Profile</a></button>
-                </section>
+                    <button type="button" name="button" class="edit-btn btn btn-light"><a href="/community/<%=member._id%>/edit" class="edit-btnLetters">Edit Profile</a></button>
+                    <!-- Delete Profile Button -->
+                    <form class="delete" action="/community/<%=member.id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete Profile" class="delete-btn btn btn-light">
+                    </form>
+                </div>
             </div>
 
-            <!-- Delete Button -->
-            <form class="delete" action="/community/<%=member.id%>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Profile" class="delete-btn">
-            </form>
-
             <div class="postsSection">
-                <h5>Posts:</h5>
-                <ul>
+                <h5 class="show-post">Posts:</h5>
+                <ul class="row">
                     <% for (let i = 0; i < member.posts.length; i++) { %>
-                        <li>
-                            <img src="<%=member.posts[i].img%>" alt="photo">
+                        <li class="col-4">
+                            <img src="<%=member.posts[i].img%>" alt="photo" class="showPictures">
                             <p><%=member.posts[i].caption%></p>
                             <p><%=member.posts[i].feeling%></p>
                             <p><%=member.posts[i].postDate%></p>
+                            <a href="/posts/<%=member.posts[i]._id%>/edit"><button type="button" class="btn btn-outline-secondary">Edit</button></a>
                         </li>
                     <% } %>
                 </ul>

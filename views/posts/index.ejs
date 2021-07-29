@@ -4,17 +4,15 @@
         <%- include ('../partials/head.ejs') %>
     </head>
     <body>
-        <nav>
-            <%- include ('../partials/header.ejs') %>
-        </nav>
-        <div class="container">
-            <h2>Feed</h2>
+        <!-- header and nav partial -->
+        <%- include ('../partials/header.ejs') %>
 
-            <button type="button" name="button"><a href="/posts/new">New Post</a></button>
+        <div class="container">
+            <h3 class="indexTitle">Feed</h3>
             <ul>
                 <% for (let i = 0; i < posts.length; i++) { %>
                     <div class="entry">
-                            <img src="<%=posts[i].img%>" alt="photo">
+                            <img src="<%=posts[i].img%>" alt="photo" class="feed-pics">
                             <p><%=posts[i].postText%></p>
                             <p><%=posts[i].feeling%></p>
                             <p><%=posts[i].points%></p>

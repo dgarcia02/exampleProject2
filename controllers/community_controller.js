@@ -64,7 +64,7 @@ community.put('/:id', (req, res) => {
 // =========== CREATE ROUTE ===========//
 community.post('/', (req, res) => {
     Community.create(req.body, (error, createdMember) => {
-        res.redirect('/community')
+        res.redirect('/posts')
     })
 })
 

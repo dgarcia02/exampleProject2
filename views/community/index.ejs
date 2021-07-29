@@ -9,16 +9,16 @@
 
         <div class="container">
             <main>
-                <h3>Community</h3>
+                <h3 class="indexTitle">Community</h3>
                 <div class="profilesList">
-                    <ul class="profileItems">
+                    <ul class="profileItems row">
                         <% for (let i = 0; i < members.length; i++) { %>
-                            <li class="communityList">
+                            <li class="communityList col-3">
                                 <a href="/community/<%=members[i]._id%>"><img src="<%=members[i].img%>" alt="profilePic" class="profilePic"></a>
                                 <br>
                                 <a href="/community/<%=members[i]._id%>"><%=members[i].name%></a>
                                 <br>
-                                <p><%=members[i].pronouns%></p>
+                                <p id="pronouns"><%=members[i].pronouns%></p>
                             </li>
                         <% } %>
                     </ul>
