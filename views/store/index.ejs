@@ -10,19 +10,22 @@
             <h3 class="indexTitle">Store</h3>
             <ul class="products row">
                 <% for (let i = 0; i < store.length; i++) { %>
-                    <li>
-                        <img src="<%=store[i].img%>" alt="product image">
+                    <li class="col-6 product-container">
+                        <img src="<%=store[i].img%>" alt="product image" class="store_img">
                         <br>
                         <h4><%=store[i].product%></h4>
-                        Description:
+                        <b>Description:</b>
                         <h6>Brand: <%=store[i].description.brand%></h6>
                         <h6>Fabric: <%=store[i].description.fabric%></h6>
                         <h6>Color: <%=store[i].description.color%></h6>
-                        <h5>$<%=store[i].price%></h5>/
-                        <h5><%=store[i].points%> points</h5>
+                        <h5>$<%=store[i].price%> / <%=store[i].points%> points</h5>
+                        <button type="button" class="btn btn-outline-secondary">Add to Cart</button>
                     </li>
                 <% } %>
             </ul>
         </div>
+        <footer>
+            <%- include ('../partials/footer.ejs') %>
+        </footer>
     </body>
 </html>

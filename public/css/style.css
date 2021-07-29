@@ -20,7 +20,7 @@ footer {
     border-top: 1px solid rgba(219,219,255,1);
     height: 80px;
     /* background-color: #323649; */
-    color: #E0E0E0;
+    color: #B8B8B8;
 }
 
 main {
@@ -184,7 +184,15 @@ li {
     margin-bottom: 2em;
 }
 
+/* ========== Store Index Page ========== */
+.store_img {
+    width: 50%;
 
+}
 
+.product-container {
+    margin-bottom: 2em;
+
+}
 
 /*  */
